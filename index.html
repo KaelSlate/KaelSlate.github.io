@@ -140,8 +140,22 @@
   @media (prefers-color-scheme: light) { .btn { color: #FBF8F1; } }
   .act-note { margin: 15px 0 0; font-size: 0.85rem; color: var(--ink-faint); }
 
-  /* ─── Demo panel ─────────────────────────────────────────────────────── */
-  .stage { padding: 64px 0 0; }
+  /* ─── The real thing: a photograph, not a mockup ─────────────────────── */
+  .shot { padding: 58px 0 90px; }
+  .shot-frame {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--line-strong);
+    background: var(--surface);
+    box-shadow: 0 50px 90px -38px var(--shadow);
+  }
+  .shot-frame img { display: block; width: 100%; height: auto; }
+  .shot-cap { margin: 18px auto 0; max-width: 52ch; text-align: center; font-size: 0.88rem; color: var(--ink-faint); }
+
+  /* ─── Capture demo: what a still photo cannot show ───────────────────── */
+  .stage { padding: 90px 0 0; }
+  .stage-head { text-align: center; max-width: 36ch; margin: 0 auto 34px; }
+  .stage-head h2 { font-size: clamp(1.55rem, 2.9vw, 2.1rem); line-height: 1.14; }
+  .stage-head p { color: var(--ink-soft); margin: 14px 0 0; font-size: 1rem; }
   .chord { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 18px; font-family: var(--mono); }
   .cap {
     font-size: 0.78rem; padding: 6px 12px; border-radius: 7px; color: var(--ink-soft);
@@ -288,7 +302,9 @@
     .band, .note-band { padding: 68px 0; }
     .truths, .flow, .limits { grid-template-columns: 1fr; gap: 38px; }
     .truths, .flow, .limits { margin-top: 44px; }
-    .stage { padding-top: 48px; }
+    .shot { padding: 40px 0 58px; }
+    .stage { padding-top: 58px; }
+    .stage-head { margin-bottom: 26px; }
     .panel { padding: 16px 14px 18px; }
     .hours { font-size: 0.55rem; }
     .blk { font-size: 0.76rem; height: 34px; padding: 0 8px; }
@@ -340,8 +356,24 @@
     </div>
   </section>
 
+  <section class="shot">
+    <div class="wrap">
+      <div class="shot-frame">
+        <img src="og-image.png" width="1200" height="630" decoding="async"
+             alt="Slate showing a single day: a list of tasks on the left, and the same tasks placed as blocks on a horizontal ribbon of hours on the right.">
+      </div>
+      <p class="shot-cap">One day, laid out along its hours. Tasks sit where their time is, not in a list you have to read top to bottom.</p>
+    </div>
+  </section>
+
+  <div class="ticks" role="presentation"></div>
+
   <section class="stage">
     <div class="wrap">
+      <div class="stage-head">
+        <h2>You type a sentence. It works out the rest.</h2>
+        <p>No date picker, no time field, no choosing a list. The bar tells you where the task will land before you press Enter.</p>
+      </div>
       <div class="chord" id="chord" aria-hidden="true">
         <span class="cap">Alt</span><span class="plus">+</span><span class="cap">Space</span>
       </div>
